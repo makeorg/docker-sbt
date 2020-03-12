@@ -39,12 +39,12 @@ RUN pacman -Sy && \
   pacman-db-upgrade && \
   pacman -Su --noconfirm && \
   pacman -U /tmp/bloop-*.pkg.tar.xz --noconfirm && \
-  pacman -S git openssh docker gcc make sed awk gzip grep curl vim tree iproute2 inetutils jdk8-openjdk sbt jq --noconfirm --needed && \
+  pacman -S git openssh docker gcc make sed awk gzip grep curl vim tree iproute2 inetutils jdk13-openjdk sbt jq --noconfirm --needed && \
   /bin/sh -c "bloop server &" && echo "Downloading bloop" && \
-  curl https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz --output - |tar -xzC /usr/lib/jvm && \
+  curl https://cdn.azul.com/zulu/bin/zulu13.29.9-ca-jdk13.0.2-linux_x64.tar.gz --output - |tar -xzC /usr/lib/jvm && \
   unlink /usr/lib/jvm/default && unlink /usr/lib/jvm/default-runtime && \
-  ln -sf /usr/lib/jvm/zulu8.28.0.1-jdk8.0.163-linux_x64 /usr/lib/jvm/default && \
-  ln -sf /usr/lib/jvm/zulu8.28.0.1-jdk8.0.163-linux_x64 /usr/lib/jvm/default-runtime && \
+  ln -sf /usr/lib/jvm/zulu13.29.9-ca-jdk13.0.2-linux_x64 /usr/lib/jvm/default && \
+  ln -sf /usr/lib/jvm/zulu13.29.9-ca-jdk13.0.2-linux_x64 /usr/lib/jvm/default-runtime && \
   locale-gen en_US.UTF-8 && \
   pacman -Scc --noconfirm
 
