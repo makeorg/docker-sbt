@@ -1,4 +1,4 @@
-FROM archlinux/base:latest as builder
+FROM archlinux:base as builder
 MAINTAINER François LAROCHE "fl@make.org"
 
 # Let's run stuff
@@ -32,7 +32,7 @@ RUN \
   cd bloop && makepkg -s --noconfirm
 
 
-FROM archlinux/base
+FROM archlinux:base
 
 MAINTAINER technical@make.org
 
